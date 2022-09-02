@@ -2,6 +2,9 @@ import {dirname, join, normalize, relative, resolve} from 'path'
 import {satisfies} from 'semver'
 import {parse} from '@iarna/toml'
 import {create as glob} from '@actions/glob'
+import {
+    info,
+} from '@actions/core'
 
 import {GitHubHandle, lastCommitDate} from './github'
 import {readFile, stat} from './utils'
@@ -193,6 +196,7 @@ export async function checkPackages(
 
     for (const package_name in packages) {
         const package_info = packages[package_name]
+        info(`package_info: '${package_info}'`)
 
         tasks.push(
             (async () => {
