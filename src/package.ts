@@ -181,7 +181,7 @@ export async function checkPackages(
 
     for (const package_name in packages) {
         const package_info = packages[package_name]
-        info(`package_info: '${package_info}'`)
+        info(`package_info: '${JSON.stringify(package_info)}'`)
 
         tasks.push(
             (async () => {
